@@ -42,7 +42,6 @@ createGalleryList(galleryItems);
 function openLightbox(event) {
   event.preventDefault();
   window.addEventListener("keydown", handleKey);
-
   lightboxDiv.classList.add("is-open");
   const lightboxImage = document.querySelector(".lightbox___image");
   const imgSource = event.target.dataset.source;
@@ -51,6 +50,8 @@ function openLightbox(event) {
 function closeLightbox() {
   lightboxDiv.classList.remove("is-open");
   window.removeEventListener("keydown", handleKey);
+  const lightboxImage = document.querySelector(".lightbox___image");
+  lightboxImage.setAttribute("src", ` `);
 }
 function handleLightboxClick(event) {
   if (event.target !== event.currentTarget) {
